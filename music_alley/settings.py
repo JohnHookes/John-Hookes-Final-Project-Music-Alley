@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'artists',
-    'music_alley'
+    'music_alley',
 ]
 
 MIDDLEWARE = [
