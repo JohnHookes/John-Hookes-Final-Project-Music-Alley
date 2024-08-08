@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from django.http import HttpResponse
+from django.views import generic
+from .models import Post
 
 class HomePage(TemplateView):
     """
@@ -8,5 +9,7 @@ class HomePage(TemplateView):
     """
     template_name = 'index.html'
 
-def my_blog(request):
-    return HttpResponse("Hello, Blog!")  
+class PostList(generic.ListView):
+    queryset = Post.objects.filter(status=1)
+    template_name = "artists/index.html"
+    paginate_by = 6 
