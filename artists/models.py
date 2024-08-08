@@ -18,7 +18,8 @@ class Post(models.Model):
     about = models.TextField(blank=True)
     genre = models.CharField(max_length=50, blank=True)
     content = models.TextField()
-
+    video_url = models.URLField(max_length=300, blank=True, null=True)
+    #image = models.ImageField(upload_to=artists_images/', blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
@@ -28,6 +29,14 @@ class Post(models.Model):
         ordering = ["created_on"]
     def __str__(self):
         return f"The title of this post is {self.title} | written by {self.author}"
+
+
+    def get_embed_url(self):
+        if 'youtube.com' in self.video_url or 'youtu.be' in self.video_url:
+            # Handle YouTube URLs
+            video_id = self.video_url.split('v=')[-1] if 'v=' in self.video_url else self.video_url.split('/')[-1]
+            return f"https://www.youtube.com/embed/{video_id}"
+        return self.video_url  # If not YouTube, just return the URL (or handle other services similarly)
 
 
 class Comment(models.Model):
