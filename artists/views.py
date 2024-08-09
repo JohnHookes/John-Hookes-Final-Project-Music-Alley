@@ -34,5 +34,6 @@ def post_detail(request, slug):
     return render(
         request,
         "artists/post_detail.html",
-        {"post": post},
+        {"post": post, 
+        "coder": "John Hookes"},
     )
