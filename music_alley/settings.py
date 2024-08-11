@@ -29,7 +29,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-johnhookes-johnhookesfi-4s5ooq8cdxl.ws.codeinstitute-ide.net', '.herokuapp.com', '.youtube.com']
 
@@ -60,11 +60,18 @@ INSTALLED_APPS = [
     'albums',
     'gigs',
     'songs',
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'crispy_bootstrap4',
 ]
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
