@@ -18,16 +18,16 @@ class PostList(generic.ListView):
 
 def post_detail(request, slug):
     """
-    Display an individual :model:`blog.Post`.
+    Display an individual :model:`artists.Post`.
 
     **Context**
 
     ``post``
-        An instance of :model:`blog.Post`.
+        An instance of :model:`artists.Post`.
 
     **Template:**
 
-    :template:`blog/post_detail.html`
+    :template:`artists/post_detail.html`
     """
 
     queryset = Post.objects.filter(status=1)
@@ -36,12 +36,14 @@ def post_detail(request, slug):
     comment_count = post.comments.filter(approved=True).count()
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
+        print("Received a POST request")
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.author = request.user
             comment.post = post
             comment.save()
     comment_form = CommentForm()
+    print("About to render template")
 
     return render(
         request,
