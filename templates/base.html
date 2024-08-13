@@ -35,8 +35,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">MU<span class="red-o">S</span>IC<span
-                        class="thin">|Alley</span></span></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">MUSIC<span class="thin">|Alley</span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -94,7 +93,9 @@
         <p class="text-end m-3">You are not logged in</p>
         {% endif %}
 
-
+        <div>
+        <h1 id="music_alley_heading">Welcome to Music-Alley!</h1>        
+        </div>
 
         {% block content %}
         <!-- Content Goes here -->

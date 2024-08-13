@@ -1,5 +1,15 @@
 body {
-    background-color: #F9FAFC;
+    background-color: #65a4af;
+    background-image: url('../images/my-background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+}
+
+
+
+.music_alley_heading {
+    background-color: #65a4af;
 }
 
 .brand {
@@ -23,10 +33,6 @@ body {
 
 .dark-bg {
     background-color: #445261;
-}
-
-.main-bg {
-    background-color: #F9FAFC;
 }
 
 .card {
@@ -159,3 +165,5 @@ body {
 .approval {
     color: rgb(222, 146, 168);
 }
+
+

@@ -15,7 +15,7 @@ class Songs(models.Model):
     slug = models.SlugField(max_length=200, unique=True, default='default-slug',)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="song_posts", default=1)  
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
+    description = models.TextField()
     artist_name = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="song_posts", blank=True, null=True )
     song_image = CloudinaryField('image', default='placeholder')
     song_video_url = models.URLField(max_length=300, blank=True, null=True)
@@ -34,3 +34,15 @@ class Songs(models.Model):
             video_id = self.video_url.split('v=')[-1] if 'v=' in self.song_video_url else self.song_video_url.split('/')[-1]
             return f"https://www.youtube.com/embed/{video_id}"
         return self.song_video_url  # If not YouTube, just return the URL (or handle other services similarly)
+
+class Comment(models.Model):
+    songs = models.ForeignKey(Songs, on_delete=models.CASCADE, related_name="song_comments")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="songs_commenter")
+    body = models.TextField()
+    approved = models.BooleanField(default=False)
+    created_on = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        ordering = ["created_on"]
+    def __str__(self):
+        return f"Comment {self.body} | written by {self.author}"
+

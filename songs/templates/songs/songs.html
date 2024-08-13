@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<!-- index.html content starts here -->
+<!-- songs.html content starts here -->
 <div class="container-fluid">
     <div class="row">
 
@@ -15,34 +15,34 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
-                                {% if "placeholder" in songs.featured_image.url %}
+                                {% if "placeholder" in song.featured_image.url %}
                                 <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ songs.featured_image.url }}" alt="{{ song.title }}">
+                                <img class="card-img-top" src=" {{ songs.featured_image.url }}" alt="{{ songs.title }}">
                                 {% endif %}
                                 <div class="image-flash">
-                                    <p class="author">Song: {{ songs.artist_name }}</p>
+                                    <p class="author">Artist: {{ songs.artist_name }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'song_detail' song.slug %}" class="post-link">
-                                <h2 class="card-title">Genre: {{ song.title }}</h2>
+                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                                <h2 class="card-title">Genre: {{ songs.genre }}</h2>
                             </a>
                             <hr />
                             <p class="card-text text-muted h6"> About: {{ songs.about}}
                             </p>
                             <hr />
-                            <p class="card-text text-muted h6"> {{songs.content}}
+                            <p class="card-text text-muted h6"> {{ songs.content}}
                             </p>
 
                              {% if songs.song_video_url %}
         <div class="video">
-            <iframe width="360" height="215" src="{{ songs.get_embed_url }}" frameborder="0" allowfullscreen></iframe>
+            <iframe width="360" height="215" src="{{ post.get_embed_url }}" frameborder="0" allowfullscreen></iframe>
         </div>
     {% endif %}
 
 
                             <hr />
-                            <p class="card-text text-muted h6"> {{ songs.created_on}}
+                            <p class="card-text text-muted h6"> {{ post.created_on}}
                             </p>
                         </div>
                     </div>
@@ -73,19 +73,19 @@
     {% endif %}
 </div>
 
-<!-- Creating New Songs Post -->
+<!-- Creating New Artists Post -->
 <div class="col-md-4 card mb-4 mt-3">
     <div class="card-body">
       {% if user.is_authenticated %}
       <h3>Tell us whats new in your musical life:</h3>
       <p>Posting as: {{ user.username }}</p>
-      <form id="ArtistPostForm" method="post"
-        style="margin-top: 1.3em;">
+      <form method="post"
         {{ artist_post_form | crispy }}
         {% csrf_token %}
-        <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+            <button  type="submit"></button> Submit</button>
       </form>
       {% else %}
+
       <p>Log in to leave a comment</p>
       {% endif %}
     </div>
@@ -94,4 +94,8 @@
 
 
 <!-- index.html content ends here -->
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
