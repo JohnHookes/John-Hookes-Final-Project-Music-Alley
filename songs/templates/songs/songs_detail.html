@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<div class="masthead">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6 masthead-text">
+                <!-- Song title goes in these h1 tags -->
+                <h1>{{ songs.title }}</h1>
+                <!-- Song author goes before the | the songs's created date goes after -->
+                <p >{{ songs.author }} | {{ songs.created_on }}</p>
+            </div>
+            <div class="d-none d-md-block col-md-6 masthead-image">
+              {% if "placeholder" in songs.featured_image.url %}
+                <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder image">
+              {% else %}
+              <img src="{{ songs.song_image.url }}" class="scale" alt="{{ post.title }}">
+              {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4  mt-3 left  top">
+            <div class="card-body">
+                <!-- The Song content goes inside the card-text. -->
+                <!-- Use the | safe filter inside the template tags -->
+                <h2>{{ coder }}</h2>
+                <p class="card-text">
+                    {{ Songs.content | safe }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}

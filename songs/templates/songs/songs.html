@@ -1,22 +1,97 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends "base.html" %}
 {% load static %}
-<div class="container mt-5">
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!-- index.html content starts here -->
+<div class="container-fluid">
     <div class="row">
-        <div class="col-4 text-center">
-            <img src="{% static 'images/nobody.jpg' %}" width="75%">
+
+        <!-- Song Entries Column -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for songs in song_list %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                {% if "placeholder" in songs.featured_image.url %}
+                                <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                                {% else %}
+                                <img class="card-img-top" src=" {{ songs.featured_image.url }}" alt="{{ song.title }}">
+                                {% endif %}
+                                <div class="image-flash">
+                                    <p class="author">Song: {{ songs.artist_name }}</p>
+                                </div>
+                            </div>
+                            <a href="{% url 'song_detail' song.slug %}" class="post-link">
+                                <h2 class="card-title">Genre: {{ song.title }}</h2>
+                            </a>
+                            <hr />
+                            <p class="card-text text-muted h6"> About: {{ songs.about}}
+                            </p>
+                            <hr />
+                            <p class="card-text text-muted h6"> {{songs.content}}
+                            </p>
+
+                             {% if songs.song_video_url %}
+        <div class="video">
+            <iframe width="360" height="215" src="{{ songs.get_embed_url }}" frameborder="0" allowfullscreen></iframe>
         </div>
-        <div class="col-8">
-            <h2>{{ songs.title }}</h2>
-            {{ songs.content | safe }}
+    {% endif %}
+
+
+                            <hr />
+                            <p class="card-text text-muted h6"> {{ songs.created_on}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col text-right">
-          <!-- Updated on field goes in here -->
-    
-          <p class="text-end"><em>Updated on: {{ songs.updated_on }}</em></p>
-        </div>
-      </div>    
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li>
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+            </li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
 </div>
-{% endblock content %}
+
+<!-- Creating New Songs Post -->
+<div class="col-md-4 card mb-4 mt-3">
+    <div class="card-body">
+      {% if user.is_authenticated %}
+      <h3>Tell us whats new in your musical life:</h3>
+      <p>Posting as: {{ user.username }}</p>
+      <form id="ArtistPostForm" method="post"
+        style="margin-top: 1.3em;">
+        {{ artist_post_form | crispy }}
+        {% csrf_token %}
+        <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+      </form>
+      {% else %}
+      <p>Log in to leave a comment</p>
+      {% endif %}
+    </div>
+  </div>
+
+
+
+<!-- index.html content ends here -->
+{% endblock %}

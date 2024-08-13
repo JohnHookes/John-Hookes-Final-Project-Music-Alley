@@ -4,13 +4,62 @@ from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, ArtistPostForm
+from django import forms
 
 class HomePage(TemplateView):
     """
     Displays home page
     """
+
+    """
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['artist_post_form'] = ArtistPostForm()
+        return context
+
+    def post(self, request, *args, **kwargs):
+        artist_post_form = ArtistPostForm(data=request.POST)
+        print("Received a POST request")
+        if artist_post_form.is_valid():
+            post = artist_post_form.save(commit=False)
+            post.author = request.user  # Assuming 'author' is a field on your Post model
+            post.save()
+            print("Post saved successfully")
+        else:
+            print("Form is not valid")
+
+        # Re-render the template with the form context
+        return render(request, self.template_name, {
+            "artist_post_form": artist_post_form,
+            "coder": "John Hookes",
+        })
+
+"""
+
+
+    """
     template_name = 'index.html'
+    artist_post_form = ArtistPostForm()
+    
+    if request.method == "POST":
+        artist_post_form = ArtistPostForm(data=request.POST)
+        print("Received a POST request")
+        if artist_post_form.is_valid():
+            post = artist_post_form.save(commit=False)
+            comment.author = request.user
+            comment.post = post
+            comment.save()
+    artist_post_form = ArtistPostForm()
+    print("About to render template")
+
+    return render(request, "artists/index.html",
+        {"post": post, 
+        "coder": "John Hookes",
+        "artist_post_form": artist_post_form, },
+    )
+
+    """
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
@@ -46,9 +95,7 @@ def post_detail(request, slug):
     comment_form = CommentForm()
     print("About to render template")
 
-    return render(
-        request,
-        "artists/post_detail.html",
+    return render(request, "artists/post_detail.html",
         {"post": post, 
         "coder": "John Hookes",
         "comments": comments,

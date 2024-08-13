@@ -9,8 +9,8 @@ class CommentForm(forms.ModelForm):
         fields = ('body',)
 
 
-class PostForm(forms.ModelForm):
+class ArtistPostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('artist_name' 'about', 'artist_name', 'genre',)
+        fields = ('artist_name', 'title', 'slug', 'about', 'featured_image', 'genre', 'video_url', 'status', 'excerpt',)
 
