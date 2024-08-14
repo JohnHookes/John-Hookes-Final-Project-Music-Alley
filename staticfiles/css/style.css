@@ -4,11 +4,53 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: repeat-y;
+    
 }
 
+/* makes sure video fits the container */
+.video {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
 
+.video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
 
-.music_alley_heading {
+.image-container {
+    width: 100%; /* or any specific width */
+    position: relative;
+    overflow: hidden; /* Ensures that any overflow is hidden */
+}
+/* makes sure image fits the container */
+.card-img-top {
+    width: 100%; /* Makes the image width match the container width */
+    height: auto; /* Keeps the aspect ratio */
+    object-fit: cover; /* Ensures the image covers the container without stretching */
+}
+
+#post-container {
+    border: 2px solid #65a4af; /* Adjust color and thickness as needed */
+    padding: 5px; /* Optional: Add padding inside the border */
+    border-radius: 4px; /* Optional: Rounded corners */
+}
+
+.main-post-section {
+    background-color: #65a4af;
+    border: 3px solid #445261; /* Adjust color and thickness as needed */
+    padding: 10px; /* Optional: Add padding inside the border */
+    border-radius: 4px; /* Optional: Rounded corners */
+}
+
+.music-alley-heading {
     background-color: #65a4af;
 }
 
@@ -40,6 +82,12 @@ body {
     background-color: transparent;
 }
 
+.card-title {
+    border: 2px solid #65a4af; /* Adjust color and thickness as needed */
+    padding: 5px; /* Optional: Add padding inside the border */
+    border-radius: 3px; /* Optional: Rounded corners */
+}
+
 .image-container {
     position: relative;
 }
@@ -50,6 +98,9 @@ body {
     min-width: 30%;
     left: -2px;
     background-color: #188181;
+    border: 2px solid #af7065; /* Adjust color and thickness as needed */
+    padding: 3px; /* Optional: Add padding inside the border */
+    border-radius: 3px; /* Optional: Rounded corners */
 }
 
 .scale {

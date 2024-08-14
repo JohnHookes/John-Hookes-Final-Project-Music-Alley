@@ -10,7 +10,7 @@
 
 <head>
     <title>Music-Alley</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -33,7 +33,7 @@
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav id="base_nav"  class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">MUSIC<span class="thin">|Alley</span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -46,18 +46,7 @@
                         <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
                             href="{% url 'home' %}">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == albums_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'albums' %}">Albums</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == songs_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'songs' %}">Songs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == gigs_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'gigs' %}">Gigs</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == about_url %}active{% endif %}" aria-current="page"
                             href="{% url 'about' %}">About</a>
@@ -93,8 +82,17 @@
         <p class="text-end m-3">You are not logged in</p>
         {% endif %}
 
-        <div>
-        <h1 id="music_alley_heading">Welcome to Music-Alley!</h1>        
+
+        <!-- Hero Image --> 
+        <div class="hero" style="background-image: url('{% static 'images/hero-image.jpeg' %}');">
+            <div class="hero-content">
+                <h1>Welcome to Music-Alley</h1>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+      
         </div>
 
         {% block content %}

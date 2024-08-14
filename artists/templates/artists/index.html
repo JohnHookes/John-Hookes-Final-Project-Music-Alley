@@ -13,10 +13,11 @@
                 {% for post in post_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <div class="card-body">
+                        <div id="post-container" class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                                <img class="image-section" class="card-img-top" src="{% static 'images/default.jpeg' %}"
+                                    alt="placeholder image">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
                                 {% endif %}
@@ -25,20 +26,14 @@
                                 </div>
                             </div>
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                <h2 class="card-title">Genre: {{ post.genre }}</h2>
+                                <h2 class="card-title">Title: {{ post.title }}</h2>
                             </a>
                             <hr />
-                            <p class="card-text text-muted h6"> About: {{ post.about}}
-                            </p>
-                            <hr />
-                            <p class="card-text text-muted h6"> {{ post.content}}
-                            </p>
-
-                             {% if post.video_url %}
-        <div class="video">
-            <iframe width="360" height="215" src="{{ post.get_embed_url }}" frameborder="0" allowfullscreen></iframe>
-        </div>
-    {% endif %}
+                            {% if post.video_url %}
+                            <div class="video">
+                                <iframe src="{{ post.get_embed_url }}" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            {% endif %}
 
 
                             <hr />
@@ -49,6 +44,9 @@
                 </div>
                 {% if forloop.counter|divisibleby:3 %}
             </div>
+
+
+
             <div class="row">
                 {% endif %}
                 {% endfor %}
@@ -56,9 +54,11 @@
             </div>
         </div>
     </div>
+
+    <!-- Paginated NEXT and PREV links -->
     {% if is_paginated %}
     <nav aria-label="Page navigation">
-        
+
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
             <li>
@@ -79,7 +79,7 @@
         {% if user.is_authenticated %}
         <h3>Tell us what's new in your musical life:</h3>
         <p>Posting as: {{ user.username }}</p>
-        <form method="post"  id="artistpostform" action="{% url 'home' %}">
+        <form method="post" id="artistpostform" action="{% url 'home' %}">
             {% csrf_token %}
             {{ artist_post_form.as_p }}
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -95,5 +95,5 @@
 {% endblock %}
 
 {% block extras %}
-<script src="{% static 'js/comments.js' %}"></script>
+<script src="{% static 'js/artists.js' %}"></script>
 {% endblock %}

@@ -129,6 +129,7 @@ def post_detail(request, slug):
         "comment_form": comment_form, },
     )
 
+# function for editing a comment
 def comment_edit(request, slug, comment_id):
     """
     view to edit comments
@@ -150,6 +151,8 @@ def comment_edit(request, slug, comment_id):
             messages.add_message(request, messages.ERROR, 'Error updating comment!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+# function for deleting a comment
 
 def comment_delete(request, slug, comment_id):
     """
@@ -182,4 +185,61 @@ def index(request, slug):
     return render(request, 'index.html', {
         'post': post,
         'comment_form': comment_form,
+    })
+
+# function for editing an artist Post
+
+def post_edit(request, slug, post_id):
+    """
+    view to edit comments
+    """
+    if request.method == "POST":
+
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        post = get_object_or_404(Post, pk=post_id)
+        artist_post_form = ArtistPostForm(data=request.POST, instance=post)
+
+        if artist_post_form.is_valid() and post.author == request.user:
+            post = artist_post_form.save(commit=False)
+            post.author = request.user
+            post.save()
+            messages.add_message(request, messages.SUCCESS, 'Artist Post Updated!')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error updating Artist Post!')
+
+    return HttpResponseRedirect(reverse('home', args=[slug]))
+
+# function for deleting an Artist Post
+def post_delete(request, slug, post_id):
+    """
+    view to delete post
+    """
+    queryset = Post.objects.filter(status=1)
+    post = get_object_or_404(queryset, slug=slug)
+  #  comment = get_object_or_404(Comment, pk=comment_id)
+
+    if post.author == request.user:
+        post.delete()
+        messages.add_message(request, messages.SUCCESS, 'Post deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own post!')
+
+    return HttpResponseRedirect(reverse('home',))
+
+def index(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    if request.method == "POST":
+        artist_post_form = ArtistPostForm(request.POST)
+        if artist_post_form.is_valid():
+            post = post_form.save(commit=False)
+            post.post = post
+            post.author = request.user
+            post.save()
+    else:
+        artist_post_form = ArtistPostForm()
+
+    return render(request, 'index.html', {
+        'post': post,
+        'artist_post_form': artist_post_form,
     })
