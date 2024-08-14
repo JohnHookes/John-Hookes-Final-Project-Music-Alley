@@ -28,7 +28,7 @@
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <h2 class="card-title">Title: {{ post.title }}</h2>
                             </a>
-                            <hr />
+                            <hr/>
                             {% if post.video_url %}
                             <div class="video">
                                 <iframe src="{{ post.get_embed_url }}" frameborder="0" allowfullscreen></iframe>
@@ -36,7 +36,7 @@
                             {% endif %}
 
 
-                            <hr />
+                            <hr/>
                             <p class="card-text text-muted h6"> {{ post.created_on}}
                             </p>
                         </div>
