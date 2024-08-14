@@ -1,0 +1,119 @@
+Code Institute Bootcamp Personal project.
+
+
+
+Aims
+
+Create a website for Musicians, Artists and Bands to be able to showcase their Music, Art and upcoming and previous gigs
+
+
+User Stories
+
+-Admin/Superuser
+-update their password
+
+-Create new Admin Profiles
+
+
+
+- Admin will be able to Create, Read, Update and Delete any User Profile or any Posts by the User
+
+- Admin will be able to Create, Read, Update and Delete any Casual User Profile or any Posts/Comments by the Casual User
+
+-Bands/Artist(User)
+	-Signup as an Artist and set password
+
+-User will be able to Create, Read, Update and Delete their profile requiring a password for login.
+
+- Profile should include Name of Band or Artist, Genre of Music, Picture, Artwork, about section, Discography and link to where the music can be listened to or purchased, Social Media, contact info. 
+
+-User will be able to post upcoming gigs Inc city, venue, date, time, cost and where to buy tickets with some artist imagery and link to where info about venue accessibility can be found. 
+
+-They should be able to add photos from the gig and a few lines about how the gig went
+
+
+
+-Fans(Casual User)
+	-Sign up as a Fan and set a password
+
+-Fans will be able to create, Read, Update and delete their profile requiring a password for login.
+
+-Fans should be able to search for bands/artist by Genre, Artist Name, Song title, Album title
+
+-Fans should be able to leave comments below artists posts
+
+-Fans should be able to search for gigs by city, venue, genre and date
+
+
+
+
+Models/Databases
+
+User_Type:
+		-admin
+		-Artist
+		-Fan
+
+	
+	Admin:
+		ID-------------------- Integer
+		Username--------- String
+		Password---------- String
+
+	Artist:
+		ID ------------------- Integer
+		Username--------- String/Charfield
+Password---------- String/Charfield
+		Artist Name------- String/Charfield primary
+		Genre -------------- String/Charfield
+		About--------------- String/TextField
+Profile pic---------- Imagefile/summertime
+Artwork------------- Image file/summertime
+Albums------------- String/ForeignKey
+Songs--------------- String/foreignKey
+Social media/Contact Info - Links
+Gigs------------------Foreign Key
+
+
+
+	Fans:
+		ID--------------------- Integer
+		Username---------- String/Charfield
+		Password----------- String/Charfield
+		Favourite Genres—
+		
+		
+
+Album:
+		ID--------------------- Integer
+		Name---------------- String/Charfield
+		Artist----------------- String/Charfield/Foreign Key
+		Songs----------------- string/charfield/ Foreign Key
+		Date------------------ ?????? 
+		Link to listen-------
+		Link to Buy --------
+
+	Song:	
+		ID-------------------- Integer
+		Name--------------- String/Charfield
+		Album-------------- String/Charfield/ForeignKey
+		Artist---------------- String/Charfield/ForeignKey
+		Link to listen------
+		Link to Buy
+
+	Gigs: 
+		ID---------------------Integer
+		Artist----------------String/Charfield/ForeignKey
+		City------------------ String/Charfield
+Venue-------------- String/Charfield
+Date time---------- ??????????
+Price---------------- float 2 decimal places
+Link to purchase tickets -
+Venue Web site – Link ---
+
+
+
+Wireframes
+
+
+
