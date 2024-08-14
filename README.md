@@ -1,5 +1,14 @@
+website 
+
+https://music-alley-cdf33fde4248.herokuapp.com/
 
 
+The site was deployed to Heroku  pages. At this address
+•	https://dashboard.heroku.com/apps/music-alley/deploy/github
+
+GitHub Repository
+
+https://github.com/JohnHookes/John-Hookes-Final-Project-Music-Alley
 
 Project Tester
 Username: ProjectTester
@@ -35,6 +44,7 @@ Link to github Repository Music-ally	https://github.com/users/JohnHookes/project
 •	Landing Page
 o	Header Image displaying different Musical artists instantly helping you know this site is about a variety of music.
  
+![image](https://github.com/user-attachments/assets/95d2ded7-c179-4868-b0c8-fd72f6c79b21)
 
 
 o	Background Image is of magical colourful sheet music
@@ -43,7 +53,8 @@ o	Immediately serves up a selection of  6 Artists for you to browse with Next an
  
 •	New artist Posting section
 	 
- 
+ ![image](https://github.com/user-attachments/assets/08a5ba58-e136-4964-9826-8a4d812f62e7)
+
 
 
 •	Artist Posting Details Section
@@ -54,7 +65,8 @@ o
 •	Users can Also leave a comment that needs to be approved by the User that posted
 •	Users can see other comments that have been approved
 •	User that leaves a comment has the ability to edit and delete it
- 
+ ![image](https://github.com/user-attachments/assets/bf259ceb-95c9-4bfa-a135-1f26a876ccf3)
+
 
 •	About Section
 o	This section Allows Me To Let people Know about Me as a Coder and as a musician. The can also contact me if they want to Collaborate for either.
@@ -62,7 +74,8 @@ o	This section Allows Me To Let people Know about Me as a Coder and as a musicia
  
 •	The Sign Up Page
 o	This page will allow the user to get signed up to Music-Alley so they can leave Post listings or leave comments
-o	
+o	![image](https://github.com/user-attachments/assets/dd2dbb75-f417-4fbe-8f0a-c013f1304f07)
+
 o	 .
 o	Some CSS Styling is necessary
 •	 
@@ -80,19 +93,23 @@ You should also mention in this section any interesting bugs or problems you dis
 If this section grows too long, you may want to split it off into a separate file and link to it from here.
 Validator Testing
 •	HTML
-o	No errors were returned when passing through the official W3C validator
-•	 
+o	Some errors were returned when passing through the official W3C validator
+•	 ![image](https://github.com/user-attachments/assets/b8606d09-ccdc-4acb-8241-66f5f04928d8)
+
 Solved
 
 •	CSS
 o	No errors were found when passing through the official (Jigsaw) validator
 Unfixed Bugs
+
+
 Sign up Page
 	Some CSS styling is necessary to make the words clearer
 Error when deleting or editing post
-Error when deleting or editing Post	
+	
  
 There is an error with collecting the right url extension. Problem getting the right slug?
+
 Resizing Issue
  
 
@@ -103,23 +120,32 @@ This section should describe the process you went through to deploy the project 
 •	The site was deployed to Heroku  pages. At this address
 •	https://dashboard.heroku.com/apps/music-alley/deploy/github
 
+
+
 •	 The steps to deploy are as follows:
 Make sure Debug = False in Setting.py
+deploy from this page in Heroku
+https://dashboard.heroku.com/apps/music-alley/deploy/github
+scroll down and click on deploy
 
-•	
-o	In the GitHub repository, navigate to the Settings tab
-o	From the source section drop-down menu, select the Master Branch
-o	Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
-The live link can be found here - https://code-institute-org.github.io/love-running-2.0/index.html
-Credits
-In this section you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism.
+GitHub Repository
+
+https://github.com/JohnHookes/John-Hookes-Final-Project-Music-Alley
+
+
+•
+In this section you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism
 You can break the credits section up into Content and Media, depending on what you have included in your project.
 Content
-•	The text for the Home page was taken from Wikipedia Article A
+•	A lot of code was taken From previous Projects at codeInstitute Tutor Support
+•       Chatgpt helped with a lot of debugging issues
+
+
+
 •	Instructions on how to implement form validation on the Sign Up page was taken from Specific YouTube Tutorial
 •	The icons in the footer were taken from Font Awesome
 Media
-•	The photos used on the home and sign up page are from This Open Source site
+•	The images where taken from shutterstock orThe photos used on the home and sign up page are from This Open Source site
 •	The images used for the gallery page were taken from this other open source site
 Congratulations on completing your Readme, you have made another big stride in the direction of being a developer!
 Other General Project Advice
