@@ -1,17 +1,145 @@
-User Experience Design
 
+
+
+Project Tester
+Username: ProjectTester
+Password: MusicAlley
+
+Music-Alley
+Music-Alley is a site for musicians and music fans so that they can share their music and fans can find new artist and old favourites. Musicians will be able to share, not only their music but also any recent events, updates, daily musings and any gigs coming up helping them grow their fan base.  Fans will be able to not just enjoy their music but connect with artists and find out what gigs are coming up.
 
 Features
+•	Navigation Bar
+o	Featured on all five pages, the full responsive navigation bar includes links to the Logo, Home page, Songs, gigs and Sign Up page(if not registered) login page(if not logged in) and logout page( if logged in) and is identical in each page to allow for easy navigation. These fold into a burger on smaller screens
+o	 
+o	 ![image](https://github.com/user-attachments/assets/e230968a-9ede-4ad2-9e31-84636ab4807b)
+
+o	
+o	This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button.
+o	You also have next and previous buttons to view more artists
+•	Main
+o	Artist Post snippet will be displayed on larger screens 3 x 2 total 6
+o	Artist Post snippet will be displayed on smaller screens 1 x 6 total 6
+o	There is a form at the bottom If you would like to make a New artist Posting
+•	Footer
+o	This will include links to my social media so people can contact me if necessary
+•	Links
+o	Clicking on the title of a post will take you through to a more details page
 
 
-Agile section link to project board
+ 
+Link to github Repository Music-ally	https://github.com/users/JohnHookes/projects/5/views/1
+•	
+•	
+•	 
+•	Landing Page
+o	Header Image displaying different Musical artists instantly helping you know this site is about a variety of music.
+ 
 
-Testing 
+
+o	Background Image is of magical colourful sheet music
+•	
+o	Immediately serves up a selection of  6 Artists for you to browse with Next and previous buttons
+ 
+•	New artist Posting section
+	 
+ 
+
+
+•	Artist Posting Details Section
+o	Clinking on the title of the posting will take you through to the Artist Posting details page
+o	This section shows you the full rundown of the posting allowing fans to find out more about whats going on in the artists life at the moment
+o	User should be able to edit and delete postings if they where the user who created it. Needs fixing
+o	 
+•	Users can Also leave a comment that needs to be approved by the User that posted
+•	Users can see other comments that have been approved
+•	User that leaves a comment has the ability to edit and delete it
+ 
+
+•	About Section
+o	This section Allows Me To Let people Know about Me as a Coder and as a musician. The can also contact me if they want to Collaborate for either.
+
+ 
+•	The Sign Up Page
+o	This page will allow the user to get signed up to Music-Alley so they can leave Post listings or leave comments
+o	
+o	 .
+o	Some CSS Styling is necessary
+•	 
+•	Shows that you are logged In and changes the nav bar
+•	 
+
+In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+Features Left to Implement
+•	Individual songs Page
+•	Gigs page
+Testing
+In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your project’s features and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+If this section grows too long, you may want to split it off into a separate file and link to it from here.
+Validator Testing
+•	HTML
+o	No errors were returned when passing through the official W3C validator
+•	 
+Solved
+
+•	CSS
+o	No errors were found when passing through the official (Jigsaw) validator
+Unfixed Bugs
+Sign up Page
+	Some CSS styling is necessary to make the words clearer
+Error when deleting or editing post
+Error when deleting or editing Post	
+ 
+There is an error with collecting the right url extension. Problem getting the right slug?
+Resizing Issue
+ 
+
+Some adjustments need to be made to the CSS to ensure the picture and text fit nicely in there boxes
+You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
+Deployment
+This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub)
+•	The site was deployed to Heroku  pages. At this address
+•	https://dashboard.heroku.com/apps/music-alley/deploy/github
+
+•	 The steps to deploy are as follows:
+Make sure Debug = False in Setting.py
+
+•	
+o	In the GitHub repository, navigate to the Settings tab
+o	From the source section drop-down menu, select the Master Branch
+o	Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+The live link can be found here - https://code-institute-org.github.io/love-running-2.0/index.html
+Credits
+In this section you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism.
+You can break the credits section up into Content and Media, depending on what you have included in your project.
+Content
+•	The text for the Home page was taken from Wikipedia Article A
+•	Instructions on how to implement form validation on the Sign Up page was taken from Specific YouTube Tutorial
+•	The icons in the footer were taken from Font Awesome
+Media
+•	The photos used on the home and sign up page are from This Open Source site
+•	The images used for the gallery page were taken from this other open source site
+Congratulations on completing your Readme, you have made another big stride in the direction of being a developer!
+Other General Project Advice
+Below you will find a couple of extra tips that may be helpful when completing your project. Remember that each of these projects will become part of your final portfolio so it’s important to allow enough time to showcase your best work!
+•	One of the most basic elements of keeping a healthy commit history is with the commit message. When getting started with your project, read through this article by Chris Beams on How to Write a Git Commit Message
+o	Make sure to keep the messages in the imperative mood
+•	When naming the files in your project directory, make sure to consider meaningful naming of files, point to specific names and sections of content.
+o	For example, instead of naming an image used ‘image1.png’ consider naming it ‘landing_page_img.png’. This will ensure that there are clear file paths kept.
+•	Do some extra research on good and bad coding practices, there are a handful of useful articles to read, consider reviewing the following list when getting started:
+o	Writing Your Best Code
+o	HTML & CSS Coding Best Practices
+o	Google HTML/CSS Style Guide
+Getting started with your Portfolio Projects can be daunting, planning your project can make it a lot easier to tackle, take small steps to reach the final outcome and enjoy the process!
 
 
 
 
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+
+![image](https://github.com/user-attachments/assets/5df13787-9fa9-4899-bf05-87887259b680)
+
 
 Welcome John Hooks,
 
