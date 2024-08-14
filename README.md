@@ -14,6 +14,8 @@ Project Tester
 Username: ProjectTester
 Password: MusicAlley
 
+project prep doc can be found in the project prep file
+
 Music-Alley
 Music-Alley is a site for musicians and music fans so that they can share their music and fans can find new artist and old favourites. Musicians will be able to share, not only their music but also any recent events, updates, daily musings and any gigs coming up helping them grow their fan base.  Fans will be able to not just enjoy their music but connect with artists and find out what gigs are coming up.
 
