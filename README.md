@@ -19,6 +19,10 @@ project prep doc can be found in the project prep file
 Music-Alley
 Music-Alley is a site for musicians and music fans so that they can share their music and fans can find new artist and old favourites. Musicians will be able to share, not only their music but also any recent events, updates, daily musings and any gigs coming up helping them grow their fan base.  Fans will be able to not just enjoy their music but connect with artists and find out what gigs are coming up.
 
+
+
+
+
 Features
 •	Navigation Bar
 o	Featured on all five pages, the full responsive navigation bar includes links to the Logo, Home page, Songs, gigs and Sign Up page(if not registered) login page(if not logged in) and logout page( if logged in) and is identical in each page to allow for easy navigation. These fold into a burger on smaller screens
@@ -36,6 +40,59 @@ o	There is a form at the bottom If you would like to make a New artist Posting
 o	This will include links to my social media so people can contact me if necessary
 •	Links
 o	Clicking on the title of a post will take you through to a more details page
+
+
+Wireframes
+
+LANDING PAGE BEFORE LOGIN - BROWSER WINDOW
+
+![image](https://github.com/user-attachments/assets/7c33bc65-5c71-4eeb-b2e3-b55273c7fccb)
+
+
+LANDING PAGE BEFORE LOGIN - PHONE
+
+![image](https://github.com/user-attachments/assets/b5697e4e-dafb-4b0e-9c8e-9e3c744f6e0b)
+
+
+LANDING PAGE AFTER LOGIN - BROWSER WINDOW
+
+![image](https://github.com/user-attachments/assets/d809e592-2585-47d3-bf0e-fba979443c5d)
+
+LANDING PAGE AFTER LOGIN - PHONE
+
+![image](https://github.com/user-attachments/assets/51502a01-a2a3-4f74-b33f-32859cdb7cde)
+
+INDIVIDUAL ARTIST POST PAGE - BROWSER WINDOW
+
+![image](https://github.com/user-attachments/assets/86871449-d39d-4d05-a159-c125ff7f975e)
+
+INDIVIDUAL ARTIST POST PAGE - PHONE   ------------ NEED
+
+SIGN IN PAGE - BROWSER WINDOW
+
+![image](https://github.com/user-attachments/assets/bd29fff5-844a-46a3-91b3-3c15631a6187)
+
+SIGN IN PAGE - PHONE ---------- NEED
+
+REGISTER PAGE - BROWSER WINDOW
+
+![image](https://github.com/user-attachments/assets/91854faa-ef6d-4eaa-9062-0117836777c3)
+
+REGISTER PAGE - PHONE   -------- NEED
+
+ABOUT PAGE - BROWSER WINDOW
+
+![image](https://github.com/user-attachments/assets/9142027d-4587-4d50-8c85-bf90c97dad43)
+
+ABOUT PAGE - PHONE -------- NEED
+
+
+
+
+
+
+
+
 
 
  
