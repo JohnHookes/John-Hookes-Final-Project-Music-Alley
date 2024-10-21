@@ -44,9 +44,54 @@ o	Clicking on the title of a post will take you through to a more details page
 
 Wireframes
 
-LANDING PAGE BEFORE LOGIN
+LANDING PAGE BEFORE LOGIN - BROWSER WINDOW
 
 ![image](https://github.com/user-attachments/assets/7c33bc65-5c71-4eeb-b2e3-b55273c7fccb)
+
+
+LANDING PAGE BEFORE LOGIN - PHONE
+
+![image](https://github.com/user-attachments/assets/b5697e4e-dafb-4b0e-9c8e-9e3c744f6e0b)
+
+
+LANDING PAGE AFTER LOGIN - BROWSER WINDOW
+
+![image](https://github.com/user-attachments/assets/d809e592-2585-47d3-bf0e-fba979443c5d)
+
+LANDING PAGE AFTER LOGIN - PHONE
+
+![image](https://github.com/user-attachments/assets/51502a01-a2a3-4f74-b33f-32859cdb7cde)
+
+INDIVIDUAL ARTIST POST PAGE - BROWSER WINDOW
+
+![image](https://github.com/user-attachments/assets/86871449-d39d-4d05-a159-c125ff7f975e)
+
+INDIVIDUAL ARTIST POST PAGE - PHONE   ------------ NEED
+
+SIGN IN PAGE - BROWSER WINDOW
+
+![image](https://github.com/user-attachments/assets/bd29fff5-844a-46a3-91b3-3c15631a6187)
+
+SIGN IN PAGE - PHONE ---------- NEED
+
+REGISTER PAGE - BROWSER WINDOW
+
+![image](https://github.com/user-attachments/assets/91854faa-ef6d-4eaa-9062-0117836777c3)
+
+REGISTER PAGE - PHONE   -------- NEED
+
+ABOUT PAGE - BROWSER WINDOW
+
+![image](https://github.com/user-attachments/assets/9142027d-4587-4d50-8c85-bf90c97dad43)
+
+ABOUT PAGE - PHONE -------- NEED
+
+
+
+
+
+
+
 
 
 
