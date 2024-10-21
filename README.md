@@ -19,6 +19,10 @@ project prep doc can be found in the project prep file
 Music-Alley
 Music-Alley is a site for musicians and music fans so that they can share their music and fans can find new artist and old favourites. Musicians will be able to share, not only their music but also any recent events, updates, daily musings and any gigs coming up helping them grow their fan base.  Fans will be able to not just enjoy their music but connect with artists and find out what gigs are coming up.
 
+
+
+
+
 Features
 •	Navigation Bar
 o	Featured on all five pages, the full responsive navigation bar includes links to the Logo, Home page, Songs, gigs and Sign Up page(if not registered) login page(if not logged in) and logout page( if logged in) and is identical in each page to allow for easy navigation. These fold into a burger on smaller screens
@@ -36,6 +40,14 @@ o	There is a form at the bottom If you would like to make a New artist Posting
 o	This will include links to my social media so people can contact me if necessary
 •	Links
 o	Clicking on the title of a post will take you through to a more details page
+
+
+Wireframes
+
+LANDING PAGE BEFORE LOGIN
+
+![image](https://github.com/user-attachments/assets/7c33bc65-5c71-4eeb-b2e3-b55273c7fccb)
+
 
 
  
