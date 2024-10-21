@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-johnhookes-johnhookesfi-4s5ooq8cdxl.ws.codeinstitute-ide.net', '.herokuapp.com', '.youtube.com']
+ALLOWED_HOSTS = ['8000-johnhookes-johnhookesfi-4s5ooq8cdxl.ws.codeinstitute-ide.net', '8000-johnhookes-johnhookesfi-st5czepzlm7.ws.codeinstitute-ide.net', '.herokuapp.com', '.youtube.com']
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeinstitute-ide.net", 
