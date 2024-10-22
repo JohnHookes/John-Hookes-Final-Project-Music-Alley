@@ -123,6 +123,11 @@ Music-Alley is a site for musicians and music fans so that they can share their 
 
 ----------------------------------------
 
+PROJECT PREPARATION
+
+----------------------------------------
+
+
 User Stories
 
 --Admin/Superuser--
@@ -153,11 +158,13 @@ As admin you I can create new admin users so they can admin the site if there ar
 
 -User MUST be able to Create, Read, Update and Delete their profile requiring a password for login.
 
-- Profile SHOULD include Name of Band or Artist, Genre of Music, Picture, Artwork, about section, Discography and link to where the music can be listened to or purchased, Social Media, contact info. 
+- Profile SHOULD include Name of Band or Artist, Genre of Music, Picture/Artwork, about section, Discography and link to where the music can be listened to or purchased, Social Media, contact info. 
 
 -User COULD be able to post upcoming gigs Inc city, venue, date, time, cost and where to buy tickets with some artist imagery and link to where info about venue accessibility can be found. 
 
 -They COULD be able to add photos from the gig and a few lines about how the gig went
+
+-
 
 
 --FANS(CASUAL USERS)--
