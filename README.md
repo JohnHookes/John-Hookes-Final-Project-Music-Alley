@@ -1,7 +1,10 @@
-Music-Alley
+ MUSIC-ALLEY ---------------------
+
 Music-Alley is a site for musicians and music fans so that they can share their music and fans can find new artist and old favourites. Musicians will be able to share, not only their music but also any recent events, updates, daily musings and any gigs coming up helping them grow their fan base.  Fans will be able to not just enjoy their music but connect with artists and find out what gigs are coming up.
 
-website 
+-----------------------------------
+
+WEBSITE
 
 https://music-alley-cdf33fde4248.herokuapp.com/
 
@@ -9,11 +12,11 @@ https://music-alley-cdf33fde4248.herokuapp.com/
 The site was deployed to Heroku  pages. At this address
 •	https://dashboard.heroku.com/apps/music-alley/deploy/github
 
-GitHub Repository
+GITHUB REPOSITORY
 
 https://github.com/JohnHookes/John-Hookes-Final-Project-Music-Alley
 
-Project Tester
+PROJECT
 Username: ProjectTester
 Password: MusicAlley
 
@@ -115,47 +118,62 @@ From inside your project at heroku.com go to the deploy tab scroll down and clic
 
 ----------------------------------------
 
-
 Music-Alley
 Music-Alley is a site for musicians and music fans so that they can share their music and fans can find new artist and old favourites. Musicians will be able to share, not only their music but also any recent events, updates, daily musings and any gigs coming up helping them grow their fan base.  Fans will be able to not just enjoy their music but connect with artists and find out what gigs are coming up.
 
+----------------------------------------
 
 User Stories
 
--Admin/Superuser
--update their password
+--Admin/Superuser--
 
--Create new Admin Profiles
+As admin you I can create new admin users so they can admin the site if there are any undesired or inappropriate posts
+
+- create new users inculding passwords
+
+- view user details
+
+- edit user details
+
+- delete old or banned users, including any posts they may have created
+
+- create new post
+
+- read posts
+
+- update posts if there are errors
+
+- delete posts if neccesary
+
+- update their password
 
 
+--BANDS/ARTIST(User)--
+	-Signup as an Artist and set password so that they have secure access and can let the world know what is new in their musical world
 
-- Admin will be able to Create, Read, Update and Delete any User Profile or any Posts by the User
+-User MUST be able to Create, Read, Update and Delete their profile requiring a password for login.
 
-- Admin will be able to Create, Read, Update and Delete any Casual User Profile or any Posts/Comments by the Casual User
+- Profile SHOULD include Name of Band or Artist, Genre of Music, Picture, Artwork, about section, Discography and link to where the music can be listened to or purchased, Social Media, contact info. 
 
--Bands/Artist(User)
-	-Signup as an Artist and set password
+-User COULD be able to post upcoming gigs Inc city, venue, date, time, cost and where to buy tickets with some artist imagery and link to where info about venue accessibility can be found. 
 
--User will be able to Create, Read, Update and Delete their profile requiring a password for login.
-
-- Profile should include Name of Band or Artist, Genre of Music, Picture, Artwork, about section, Discography and link to where the music can be listened to or purchased, Social Media, contact info. 
-
--User will be able to post upcoming gigs Inc city, venue, date, time, cost and where to buy tickets with some artist imagery and link to where info about venue accessibility can be found. 
-
--They should be able to add photos from the gig and a few lines about how the gig went
+-They COULD be able to add photos from the gig and a few lines about how the gig went
 
 
+--FANS(CASUAL USERS)--
+-Fans MUST be able to browse Artist posts and 
 
--Fans(Casual User)
-	-Sign up as a Fan and set a password
+-Fans SHOULD be able Sign up as a Fan and set a password 
 
--Fans will be able to create, Read, Update and delete their profile requiring a password for login.
+-Fans COULD be able to create, Read, Update and delete their profile requiring a password for login.
 
--Fans should be able to search for bands/artist by Genre, Artist Name, Song title, Album title
+-Fans Could be able to search for bands/artist by Genre, Artist Name, Song title, Album title
 
 -Fans should be able to leave comments below artists posts
 
 -Fans should be able to search for gigs by city, venue, genre and date
+
+-Fans WON'T be able to edit artists Posts
 
 
 Models/Databases
