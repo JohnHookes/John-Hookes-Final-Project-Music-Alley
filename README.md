@@ -1,3 +1,6 @@
+Music-Alley
+Music-Alley is a site for musicians and music fans so that they can share their music and fans can find new artist and old favourites. Musicians will be able to share, not only their music but also any recent events, updates, daily musings and any gigs coming up helping them grow their fan base.  Fans will be able to not just enjoy their music but connect with artists and find out what gigs are coming up.
+
 website 
 
 https://music-alley-cdf33fde4248.herokuapp.com/
@@ -14,32 +17,230 @@ Project Tester
 Username: ProjectTester
 Password: MusicAlley
 
-project prep doc can be found in the project prep file
+Link to github Repository Music-Alley	https://github.com/users/JohnHookes/projects/5/views/1
+
+-------------------------------
+PROJECT DEPLOYMENT
+
+-Procfile
+In the project root directory, there is a file named Procfile. This file tells Heroku how to run your application
+
+in the Procfile is the code
+      web: gunicorn music_alley.wsgi
+--gunicorn is a WSGI HTTP server for Python used in production with the project name being music_alley
+
+-install gunicorn  ( I have used version gunicorn==20.1.0)
+
+-Add gunicorn to your requirements.txt file
+
+-Update ALLOWED_HOSTS in settings.py 
+
+    ALLOWED_HOSTS = ['.herokuapp.com', '8000-johnhookes-johnhookesfi-4s5ooq8cdxl.ws.codeinstitute-ide.net', '8000-johnhookes-johnhookesfi-st5czepzlm7.ws.codeinstitute-ide.net']
+
+    with '8000-johnhookes-johnhookesfi-4s5ooq8cdxl.ws.codeinstitute-ide.net', '8000-johnhookes-johnhookesfi-st5czepzlm7.ws.codeinstitute-ide.net' being local hosts
+
+Add DATABASE_URL and Cloudinary
+- Heroku provides a database URL 
+
+    Log in to Heroku
+
+    Select Your App
+      -Once logged in, navigate to the Dashboard and select the app you want to add a database to.
+
+    Go to the "Resources" Tab
+      -In your app’s dashboard, click on the Resources tab at the top of the page.
+
+    Add a Heroku Postgres Add-on
+      -In the "Add-ons" section of the Resources page, search for "Heroku Postgres" in the search box that says "Add-ons".
+      -Select Heroku Postgres from the results.
+      -Choose the free plan (hobby-dev) or any other suitable plan based on your needs.
+      -Click Provision.
+
+    Retrieve the DATABASE_URL
+      -After provisioning the database, go to the Settings tab of your app.
+      -Scroll down to the Config Vars section and click Reveal Config Vars.
+      -Here, you should see the DATABASE_URL listed as one of the environment variables.
+
+    The DATABASE_URL will automatically be created when the Postgres add-on is provisioned, and you can now use this URL in your app for database connections.
+
+Update your settings.py to handle the DATABASE_URL environment variable using dj_database_url:
+  - pip install dj-database-url and  psycopg2 ( I have used version dj-database-url==0.5.0 and 
+  psycopg==3.2.1)
+
+In settings.py
+-  import dj_database_url
+   import os
+
+-DATABASES = {
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
+
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
+Static Files Handling
+Django needs to know how to handle static files in production. Install whitenoise to simplify serving static files.
+    -pip install whitenoise
+
+Update MIDDLEWARE in settings.py:
+    MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    ]
+
+Configure static files:
+  STATIC_URL = '/static/'
+  STATICFILES_DIRS = [os.path.join(BASE_DIR/ 'static'), ]
+  STATIC_ROOT = os.path.join(BASE_DIR/ 'staticfiles')
+
+Create a file in the root directory env.py and add to .gitignore
+
+os.environ.setdefault(
+    "DATABASE_URL", "postgres://u3gotcqundo:*************")
+os.environ.setdefault("SECRET_KEY", "<Your_secret_key >")
+    os.environ.setdefault(
+    "CLOUDINARY_URL", "cloudinary://<your_api_key>:<your_api_secret>@dv185mjri")
+
+these will be set in reveal configvars in your project settings at heroku.com.
+
+Run Migrations
+  -heroku run python manage.py migrate
+
+Collect Static Files
+  -python manage.py collectstatic
+
+Before Adding commiting and push changes to website make sure to set DEBUG=False
+in setting.py
+
+From inside your project at heroku.com go to the deploy tab scroll down and click Deploy Branch
+
+----------------------------------------
+
 
 Music-Alley
 Music-Alley is a site for musicians and music fans so that they can share their music and fans can find new artist and old favourites. Musicians will be able to share, not only their music but also any recent events, updates, daily musings and any gigs coming up helping them grow their fan base.  Fans will be able to not just enjoy their music but connect with artists and find out what gigs are coming up.
 
 
+User Stories
+
+-Admin/Superuser
+-update their password
+
+-Create new Admin Profiles
 
 
 
-Features
-•	Navigation Bar
-o	Featured on all five pages, the full responsive navigation bar includes links to the Logo, Home page, Songs, gigs and Sign Up page(if not registered) login page(if not logged in) and logout page( if logged in) and is identical in each page to allow for easy navigation. These fold into a burger on smaller screens
-o	 
-o	 ![image](https://github.com/user-attachments/assets/e230968a-9ede-4ad2-9e31-84636ab4807b)
+- Admin will be able to Create, Read, Update and Delete any User Profile or any Posts by the User
 
-o	
-o	This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button.
-o	You also have next and previous buttons to view more artists
-•	Main
-o	Artist Post snippet will be displayed on larger screens 3 x 2 total 6
-o	Artist Post snippet will be displayed on smaller screens 1 x 6 total 6
-o	There is a form at the bottom If you would like to make a New artist Posting
-•	Footer
-o	This will include links to my social media so people can contact me if necessary
-•	Links
-o	Clicking on the title of a post will take you through to a more details page
+- Admin will be able to Create, Read, Update and Delete any Casual User Profile or any Posts/Comments by the Casual User
+
+-Bands/Artist(User)
+	-Signup as an Artist and set password
+
+-User will be able to Create, Read, Update and Delete their profile requiring a password for login.
+
+- Profile should include Name of Band or Artist, Genre of Music, Picture, Artwork, about section, Discography and link to where the music can be listened to or purchased, Social Media, contact info. 
+
+-User will be able to post upcoming gigs Inc city, venue, date, time, cost and where to buy tickets with some artist imagery and link to where info about venue accessibility can be found. 
+
+-They should be able to add photos from the gig and a few lines about how the gig went
+
+
+
+-Fans(Casual User)
+	-Sign up as a Fan and set a password
+
+-Fans will be able to create, Read, Update and delete their profile requiring a password for login.
+
+-Fans should be able to search for bands/artist by Genre, Artist Name, Song title, Album title
+
+-Fans should be able to leave comments below artists posts
+
+-Fans should be able to search for gigs by city, venue, genre and date
+
+
+Models/Databases
+
+User_Type:
+		-admin
+		-Artist
+		-Fan
+
+	
+	Admin:
+		ID-------------------- Integer
+		Username--------- String
+		Password---------- String
+
+	Artist:
+		ID ------------------- Integer
+		Username--------- String/Charfield
+Password---------- String/Charfield
+		Artist Name------- String/Charfield primary
+		Genre -------------- String/Charfield
+		About--------------- String/TextField
+Profile pic---------- Imagefile/summertime
+Artwork------------- Image file/summertime
+Albums------------- String/ForeignKey
+Songs--------------- String/foreignKey
+Social media/Contact Info - Links
+Gigs------------------Foreign Key
+
+
+
+	Fans:
+		ID--------------------- Integer
+		Username---------- String/Charfield
+		Password----------- String/Charfield
+		Favourite Genres—
+		
+		
+
+Album:
+		ID--------------------- Integer
+		Name---------------- String/Charfield
+		Artist----------------- String/Charfield/Foreign Key
+		Songs----------------- string/charfield/ Foreign Key
+		Date------------------ ?????? 
+		Link to listen-------
+		Link to Buy --------
+
+	Song:	
+		ID-------------------- Integer
+		Name--------------- String/Charfield
+		Album-------------- String/Charfield/ForeignKey
+		Artist---------------- String/Charfield/ForeignKey
+		Link to listen------
+		Link to Buy
+
+	Gigs: 
+		ID---------------------Integer
+		Artist----------------String/Charfield/ForeignKey
+		City------------------ String/Charfield
+Venue-------------- String/Charfield
+Date time---------- ??????????
+Price---------------- float 2 decimal places
+Link to purchase tickets -
+Venue Web site – Link ---
+
+
+
+Must Have
+User login
+Artist posting including CRUd
+
+
+Should Have
+comments including crud
+
+
+Could Have
+Songs posting page
+gigs posting page
+
+Wont have
+ticket purchase
+
+
 
 
 Wireframes
@@ -87,16 +288,26 @@ ABOUT PAGE - BROWSER WINDOW
 ABOUT PAGE - PHONE -------- NEED
 
 
+Features
+•	Navigation Bar
+o	Featured on all five pages, the full responsive navigation bar includes links to the Logo, Home page, Songs, gigs and Sign Up page(if not registered) login page(if not logged in) and logout page( if logged in) and is identical in each page to allow for easy navigation. These fold into a burger on smaller screens
+o	 
+o	 ![image](https://github.com/user-attachments/assets/e230968a-9ede-4ad2-9e31-84636ab4807b)
 
-
-
-
-
-
-
+o	
+o	This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button.
+o	You also have next and previous buttons to view more artists
+•	Main
+o	Artist Post snippet will be displayed on larger screens 3 x 2 total 6
+o	Artist Post snippet will be displayed on smaller screens 1 x 6 total 6
+o	There is a form at the bottom If you would like to make a New artist Posting
+•	Footer
+o	This will include links to my social media so people can contact me if necessary
+•	Links
+o	Clicking on the title of a post will take you through to a more details page
 
  
-Link to github Repository Music-ally	https://github.com/users/JohnHookes/projects/5/views/1
+
 •	
 •	
 •	 
@@ -232,6 +443,8 @@ Welcome John Hooks,
 This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
 
 You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+
+
 
 ## Gitpod Reminders
 
