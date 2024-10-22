@@ -4,7 +4,7 @@ from django.test import TestCase
 from .forms import CommentForm
 from .models import Post
 
-class TestBlogViews(TestCase):
+class TestArtistViews(TestCase):
 
     def setUp(self):
         self.user = User.objects.create_superuser(
