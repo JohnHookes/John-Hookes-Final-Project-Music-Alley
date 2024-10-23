@@ -53,7 +53,7 @@
 {% if user.is_authenticated and post.author == user %}
 <h1>post id {{post.id}}</h1>
     <button class="btn btn-delete" post_id="{{ post.id }}" data-bs-toggle="modal" data-bs-target="#deleteArtistModal">Delete</button>
-    <button class="btn btn-edit" post_id="{{ post.id }}">Edit</button>
+    <button class="btn btn-edit" post_id="{{ post.id }}" data-bs-toggle="modal" data-bs-target="#editArtistModal">Edit</button>
 {% endif %}
 
   <!-- The post content  -->
@@ -162,6 +162,43 @@
   </div>
 </div>
 
+<!-- Edit Artist Post Modal -->
+<div class="modal fade" id="editArtistModal" tabindex="-1" aria-labelledby="editArtistModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editArtistModalLabel">Edit Artist Post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editPostForm" method="post">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="postTitle" class="form-label">Title</label>
+            <input type="text" class="form-control" id="postTitle" name="title" value="{{ post.title }}" required>
+          </div>
+          <div class="mb-3">
+            <label for="postGenre" class="form-label">Genre</label>
+            <input type="text" class="form-control" id="postGenre" name="genre" value="{{ post.genre }}" required>
+          </div>
+          <div class="mb-3">
+            <label for="postAbout" class="form-label">About</label>
+            <textarea class="form-control" id="postAbout" name="about" required>{{ post.about }}</textarea>
+          </div>
+          <div class="mb-3">
+            <label for="postContent" class="form-label">Content</label>
+            <textarea class="form-control" id="postContent" name="content" required>{{ post.content }}</textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 <!-- Delete artist post confirmation modal -->
 <div class="modal fade" id="deleteArtistModal" tabindex="-1"
   aria-labelledby="deleteArtistModalLabel" aria-hidden="true">
@@ -195,10 +232,19 @@
       button.addEventListener('click', function() {
         const postId = this.getAttribute('post_id');
         const deleteConfirmButton = document.getElementById('deleteArtistConfirm');
-        const deleteUrl = "{% url 'delete_post' post_id=0 %}".replace('0', postId); // Replace 'delete_post' with your actual delete URL
+        const deleteUrl = "{% url 'delete_post' post_id=0 %}".replace('0', postId); 
         deleteConfirmButton.setAttribute('href', deleteUrl);
       });
     });
+    const editButtons = document.querySelectorAll('.btn-edit');
+    editButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const postId = this.getAttribute('post_id');
+        
+      });
+    });
+
+
   });
 </script>
 
