@@ -19,7 +19,7 @@
                 {% for post in post_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <div id="post-container" class="card-body">
+                        <div class="post-container" class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="image-section" class="card-img-top" src="{% static 'images/default.jpeg' %}"
@@ -37,7 +37,7 @@
                             <hr>
                             {% if post.video_url %}
                             <div class="video">
-                                <iframe src="{{ post.get_embed_url }}" frameborder="0" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/2cZ_EFAmj08" style="border: none;" allowfullscreen></iframe>
                             </div>
                             {% endif %}
 

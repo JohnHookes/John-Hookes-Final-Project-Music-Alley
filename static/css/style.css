@@ -37,7 +37,7 @@ body {
     object-fit: cover; /* Ensures the image covers the container without stretching */
 }
 
-#post-container {
+.post-container {
     border: 2px solid #65a4af; /* Adjust color and thickness as needed */
     padding: 5px; /* Optional: Add padding inside the border */
     border-radius: 4px; /* Optional: Rounded corners */
