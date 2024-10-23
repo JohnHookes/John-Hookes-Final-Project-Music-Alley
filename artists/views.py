@@ -253,3 +253,9 @@ def delete_post(request, post_id):
         return redirect('home')  # Redirect to an appropriate page after deletion
     else:
         return redirect('post_detail', post_id=post_id)  # If the user is not authorized
+
+
+
+
+
+

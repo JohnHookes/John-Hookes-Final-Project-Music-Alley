@@ -462,6 +462,72 @@ Getting started with your Portfolio Projects can be daunting, planning your proj
 
 ![image](https://github.com/user-attachments/assets/5df13787-9fa9-4899-bf05-87887259b680)
 
+--------------------------------------------
+
+TESTING
+
+## Testing Overview
+This project includes automated tests to ensure the functionality and reliability of the application. The tests cover unit tests, integration tests, and end-to-end tests to validate various components and workflows.
+
+
+from django.test import TestCase
+from .forms import CommentForm
+
+
+class TestCommentForm(TestCase):
+
+    def test_form_is_valid(self):
+        comment_form = CommentForm({'body': 'This is a great post'})
+        self.assertTrue(comment_form.is_valid(), msg='Form is not valid')
+
+    def test_form_is_invalid(self):
+        comment_form = CommentForm({'body': ''})
+        self.assertFalse(comment_form.is_valid(), msg="Form is valid")
+
+Here’s a breakdown of the components:
+
+Unit Testing: This type of testing focuses on testing individual components (in this case, the form) in isolation to ensure they work as intended.
+Django Test Framework: It provides tools to test Django applications, including creating test cases that can simulate user interactions and check the behavior of forms, views, and models.
+Assertions: The methods assertTrue and assertFalse are assertions that check if the specified conditions are met, which is a common feature in testing frameworks to validate expected outcomes.
+
+Running Tests
+
+In order to run the tests type:
+
+python3 manage.py test
+
+in the command line
+
+## Prerequisites
+- Python 3.8 or higher
+- Install the required dependencies:
+- asgiref==3.8.1
+cloudinary==1.36.0
+crispy-bootstrap4==2024.1
+crispy-bootstrap5==0.7
+dj-database-url==0.5.0
+dj3-cloudinary-storage==0.0.6
+Django==4.2.14
+django-allauth==0.57.2
+django-crispy-forms==2.3
+django-summernote==0.8.20.0
+gunicorn==20.1.0
+oauthlib==3.2.2
+psycopg==3.2.1
+PyJWT==2.9.0
+python3-openid==3.2.0
+requests-oauthlib==2.0.0
+sqlparse==0.5.1
+urllib3==1.26.19
+whitenoise==5.3.0
+
+
+-pip install -r requirements.txt
+
+
+
+
+
 
 Welcome John Hooks,
 
