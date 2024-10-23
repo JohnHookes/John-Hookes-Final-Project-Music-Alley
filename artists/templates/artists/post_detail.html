@@ -52,7 +52,7 @@
 <!--Edit and Delete buttons -->
 {% if user.is_authenticated and post.author == user %}
 <h1>post id {{post.id}}</h1>
-    <button class="btn btn-delete" post_id="{{ post.id }}">Delete</button>
+    <button class="btn btn-delete" post_id="{{ post.id }}" data-bs-toggle="modal" data-bs-target="#deleteArtistModal">Delete</button>
     <button class="btn btn-edit" post_id="{{ post.id }}">Edit</button>
 {% endif %}
 
@@ -138,7 +138,7 @@
 </div>
 
 <!-- Delete comment confirmation modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1"
+<div class="modal fade" id="deleteCommentModal" tabindex="-1"
   aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -163,13 +163,13 @@
 </div>
 
 <!-- Delete artist post confirmation modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1"
-  aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteArtistModal" tabindex="-1"
+  aria-labelledby="deleteArtistModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title"
-          id="deleteModalLabel">Delete Artist Post?</h5>
+          id="deleteArtistModalLabel">Delete Artist Post?</h5>
         <button type="button" class="btn-close"
           data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -180,12 +180,27 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary"
           data-bs-dismiss="modal">Close</button>
-        <a id="deleteConfirm" href="" class="btn
+        <a id="deleteArtistConfirm" href="#" class="btn
           btn-danger">Delete</a>
       </div>
     </div>
   </div>
 </div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const deleteButtons = document.querySelectorAll('.btn-delete');
+    deleteButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const postId = this.getAttribute('post_id');
+        const deleteConfirmButton = document.getElementById('deleteArtistConfirm');
+        const deleteUrl = "{% url 'delete_post' post_id=0 %}".replace('0', postId); // Replace 'delete_post' with your actual delete URL
+        deleteConfirmButton.setAttribute('href', deleteUrl);
+      });
+    });
+  });
+</script>
 
 
 {% endblock content %}

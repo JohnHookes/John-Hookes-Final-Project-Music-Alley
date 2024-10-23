@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm, ArtistPostForm
 from django import forms
+from django.contrib.auth.decorators import login_required
 
 class HomePage(TemplateView):
     template_name = 'index.html'
@@ -243,3 +244,12 @@ def index(request, slug):
         'post': post,
         'artist_post_form': artist_post_form,
     })
+
+@login_required
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.user == post.author:
+        post.delete()
+        return redirect('home')  # Redirect to an appropriate page after deletion
+    else:
+        return redirect('post_detail', post_id=post_id)  # If the user is not authorized
